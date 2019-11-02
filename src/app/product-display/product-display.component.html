@@ -1,0 +1,27 @@
+<div class="container">
+  <h1>
+    Hi {{currentUser.username}}
+  </h1>
+  <div class="my-5 d-flex flex-row justify-content-between">
+    <div *ngFor="let product of productList" class="card" style="width: 20rem;">
+      <!-- <img class="card-img-top" src="..." alt="Card image cap"> -->
+      <div class="card-body">
+        <h5 class="card-title">{{product.name}}</h5>
+        <p class="card-text">{{product.description}}</p>
+        <p class="card-text">{{product.price | currency: 'INR'}}</p>
+        Quantity:
+        <button class="mx-3 btn btn-primary" (click)="updateQuantity(product, -1)">-</button>
+        {{product.quantity}}
+        <button class="mx-3 btn btn-primary" (click)="updateQuantity(product, 1)">+</button>
+
+        <div class="my-3">
+          <button class="btn btn-primary" (click)="updateCart(product)">Update Cart</button>
+        </div>
+
+      </div>
+    </div>
+  </div>
+  <div>
+    <button class="btn btn-primary" (click)="goToCart()">Go to Cart</button>
+  </div>
+</div>
